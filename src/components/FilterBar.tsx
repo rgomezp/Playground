@@ -18,8 +18,8 @@ export default function FilterBar(props: IProps) {
   }
 
   return (
-    <div className="flex flex-row gap-5 mb-6 p-4 bg-gray-50 rounded-lg">
-      {getButtons()}
-    </div>
+    <div className="filter-bar">{
+      getButtons()
+      }</div>
   )
 }
