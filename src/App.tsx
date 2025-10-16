@@ -1,16 +1,28 @@
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Layout from './components/Layout';
+import Playground from './pages/Playground';
+import ButtonDocs from './pages/Button';
+import CardDocs from './pages/Card';
+import FieldPickerDocs from './pages/FieldPicker';
+import SearchBarDocs from './pages/SearchBar';
+
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          Frontend Interview Ready
-        </h1>
-        <p className="text-lg text-gray-600">
-          Ready to build something amazing! 🚀
-        </p>
-      </div>
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Playground />} />
+          <Route path="playground" element={<Playground />} />
+          <Route path="button" element={<ButtonDocs />} />
+          <Route path="card" element={<CardDocs />} />
+          <Route path="fieldpicker" element={<FieldPickerDocs />} />
+          <Route path="searchbar" element={<SearchBarDocs />} />
+          <Route path="components" element={<Navigate to="/playground" replace />} />
+          <Route path="*" element={<Navigate to="/playground" replace />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
 }
 
 export default App
